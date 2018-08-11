@@ -52,11 +52,11 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var outputOne = sum(a,b)[0] + sum(c,0)[0];
-  var outputTwo = multiply(a,b)[0] * multiply(c,1)[0];
-  var messageOne = a + ' and ' + b + ' and ' + c + ' sum to ' + outputOne +'.';
-  var messageTwo = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + outputTwo + '.'
-  return [outputOne, outputTwo, messageOne, messageTwo]
+  var outputOne = sum(sum(a,b)[0],c)[0];
+  var outputTwo = multiply(multiply(a,b)[0], c)[0];
+  var messageOne = (a.toString().concat(' and ',b,' and ',c,' sum to ',outputOne,'.'));
+  var messageTwo = 'The product of '.concat(a,' and ',b,' and ',c,' is ',outputTwo, '.');
+  return [outputOne, outputTwo, messageOne, messageTwo];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
