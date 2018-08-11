@@ -131,25 +131,11 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-var i = 0;
-var formula = 'multiply(multiply('
-console.log(i,formula);
-  if (dynamicArray%2 !== 0) {
-    while (i < dynamicArray.length/2){
-      formula = formula.concat('multiply(dynamicArray\[',i,'\],dynamicArray\[',i+1,'\])\[0\],');
-      console.log(i,formula);
-      i+=2;
-    }
-  formula = formula.slice(0,-1);
-  console.log(formula);
-  formula = formula.concat(')\[0\],dynamicArray\[',dynamicArray.length-1,'\])\[0\]');
-  console.log(formula);
-  var output = eval(formula);
-  console.log(output);
-  var message = 'The numbers '.concat(dynamicArray,' have a product of ', output,'.');
-  console.log(message);
-  console.log('The numbers 1,2,3,4,5 have a product of 120.');
+  var output = dynamicArray[0];
+  for (var i = 0; i < dynamicArray.length-1; i++) {
+    output = multiply(output,dynamicArray[i+1])[0];
   }
+  var message = 'The numbers '.concat(dynamicArray,' have a product of ', output,'.');
   return [output,message];
 }
 
